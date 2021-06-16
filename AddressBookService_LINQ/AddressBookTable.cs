@@ -35,5 +35,15 @@ namespace AddressBookService_LINQ
                     + " " + "Zip : " + contact.Field<int>("Zip") + " " + "Phone Number : " + contact.Field<long>("PhoneNumber") + " " + "Email : " + contact.Field<string>("Email") + " ");
             }
         }
+        public void EditExistingContact(DataTable table)
+        {
+            var contacts = table.AsEnumerable().Where(x => x.Field<string>("First Name") == "Vishal");
+            foreach (var Editcontact in contacts)
+            {
+                Editcontact.SetField("Last Name", "Rokde");
+            }
+            Console.WriteLine("The Contact is edited succesfully");
+            DisplayContacts(contacts.CopyToDataTable());
+        }
     }
 }
