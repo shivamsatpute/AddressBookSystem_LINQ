@@ -45,5 +45,16 @@ namespace AddressBookService_LINQ
             Console.WriteLine("The Contact is edited succesfully");
             DisplayContacts(contacts.CopyToDataTable());
         }
+        public void DeleteContact(DataTable table)
+        {
+            var contacts = table.AsEnumerable().Where(x => x.Field<string>("FirstName") == "Shivam");
+            foreach (var row in contacts.ToList())
+            {
+                row.Delete();
+            }
+            Console.WriteLine("The Contact is deleted succesfully.\n");
+            DisplayContacts(table);
+        }
+
     }
 }
