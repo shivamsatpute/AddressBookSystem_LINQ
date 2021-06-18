@@ -71,6 +71,13 @@ namespace AddressBookService_LINQ
                              .GroupBy(x => x["State"].Equals("Maharashtra")).Count();
             Console.WriteLine(" : {0} ", contacts);
         }
+
+        public void SortContacts(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>()
+                           .OrderBy(x => x.Field<string>("First Name"));
+            DisplayContacts(contacts.CopyToDataTable());
+        }
     }
 }
 
