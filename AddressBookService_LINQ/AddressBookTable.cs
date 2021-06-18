@@ -20,10 +20,13 @@ namespace AddressBookService_LINQ
             table.Columns.Add("Zip", typeof(int));
             table.Columns.Add("PhoneNumber", typeof(long));
             table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("AddressBookType", typeof(string));
+            table.Columns.Add("AddressBookName", typeof(string));
 
-            table.Rows.Add("Shivam", "Satpute", "Bajaj Nagr", "Nagpur", "Maharashtra", "412105", "8788566219", "shivsat@gmail.com");
-            table.Rows.Add("Suyog", "Kumbhare", "Aund", "Pune", "Maharashtra", "125121", "8570934858", "suyog@gmail.com");
-            table.Rows.Add("Vishal", "Raut", "Mumbai", "Mumbai", "Maharashtra", "442206", "7894561230", "vishal@gmail.com");
+            table.Rows.Add("Shivam", "Satpute", "Bajaj Nagr", "Nagpur", "Maharashtra", "412105", "8788566219", "shivsat@gmail.com","Friends", "Book1");
+            table.Rows.Add("Suyog", "Kumbhare", "Aund", "Pune", "Maharashtra", "125121", "8570934858", "suyog@gmail.com", "Profession", "Book2");
+            table.Rows.Add("Vishal", "Raut", "Mumbai", "Mumbai", "Maharashtra", "442206", "7894561230", "vishal@gmail.com", "Family", "Book3");
+            table.Rows.Add("Abhijeet", "Kale", "Agesen sq", "Indore", "MP", "442583", "7894561456", "abhi@gmail.com", "Family", "Book4");
             return table;
         }
         public void DisplayContacts(DataTable addresstable)
