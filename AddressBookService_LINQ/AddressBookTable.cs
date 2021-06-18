@@ -64,8 +64,13 @@ namespace AddressBookService_LINQ
                      + " " + "Zip : " + contact.Field<int>("Zip") + " " + "Phone Number : " + contact.Field<long>("PhoneNumber") + " " + "Email : " + contact.Field<string>("Email") + " ");
                 Console.WriteLine("\n------------------------------------");
             }
-
         }
-
+        public void GetSizeByCity(DataTable table)
+        {
+            var contacts = table.Rows.Cast<DataRow>()
+                             .GroupBy(x => x["State"].Equals("Maharashtra")).Count();
+            Console.WriteLine(" : {0} ", contacts);
+        }
     }
 }
+
